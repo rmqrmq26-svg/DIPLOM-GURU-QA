@@ -13,12 +13,12 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: lts/*
-    - name: Install dependencies
+    - name: Установить пакеты
       run: npm ci
-    - name: Install Playwright Browsers
+    - name: Установить браузеры
       run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: npx playwright test
+    - name: Запуск тестов
+      run: npm t
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
