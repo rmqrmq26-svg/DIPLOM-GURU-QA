@@ -6,9 +6,7 @@
   "scripts": {
     "test": "npx playwright test",
     "ui": "npx playwright test --ui",
-    "reportAwesome": "npx allure awesome ./allure-results --single-file",
-    "reportClassic": "npx allure classic ./allure-results --single-file",
-    "allureFile": "allure generate ./allure-results -o ./allure-report && allure open ./allure-report"
+    "allureFile": "npx allure awesome ./allure-results --single-file"
   },
   "keywords": [],
   "author": "",
