@@ -29,5 +29,5 @@ jobs:
       continue-on-error: true
       with:
         name: allure-report
-        path: allure-report/
+        path: allure-report
         retention-days: 30
