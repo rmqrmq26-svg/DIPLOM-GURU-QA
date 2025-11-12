@@ -8,7 +8,7 @@
     "ui": "npx playwright test --ui",
     "reportAwesome": "npx allure awesome ./allure-results --single-file",
     "reportClassic": "npx allure classic ./allure-results --single-file",
-    "report": "allure generate ./allure-results -o ./allure-report && allure open ./allure-report"
+    "allureFile": "allure generate ./allure-results -o ./allure-report && allure open ./allure-report"
   },
   "keywords": [],
   "author": "",
