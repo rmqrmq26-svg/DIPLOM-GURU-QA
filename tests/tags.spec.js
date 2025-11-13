@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { test } from '../src/fixtueres/index';
+import { test } from '../src/fixtures/index';
 
 test.describe('Тест поиска по тегам @ui', () => {
 

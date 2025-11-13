@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { test } from '../src/fixtueres/index'
+import { test } from '../src/fixtures'
 
 test.describe('Тесты статей @ui', () => {
     
@@ -10,9 +10,12 @@ test.describe('Тесты статей @ui', () => {
         await app.main.gotoRegister();
         await app.register.register(user);
         await app.article.create(article);
-        await app.page.waitForTimeout(1000); 
+        await app.article.checkArticleTitleInput.waitFor({ state: 'visible' });
         
         await expect(app.article.checkArticleTitleInput).toContainText(article.articleName);
+        await expect(app.article.checkArticleInput).toContainText(article.description);
+        await expect(app.article.checkTagsInput).toContainText(article.tags);
+
     });
 
     test('Пользователь редактирует статью @ui', async ({ app, testDataUi }) => {
@@ -25,7 +28,7 @@ test.describe('Тесты статей @ui', () => {
         await app.article.edit(editarticle);
         
         await expect(app.article.checkArticleTitleInput).toContainText(editarticle.articleName);
-        await expect(app.article.checkArticleInput).toContainText(editarticle.description);  
+        await expect(app.article.checkArticleInput).toContainText(editarticle.description);
     });
 
     test('Пользователь лайкает статью @ui', async ({ app, testDataUi }) => {

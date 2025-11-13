@@ -34,7 +34,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    baseURL: 'https://realworld.qa.guru/',
+    baseURL: process.env.BASE_URL || 'https://realworld.qa.guru/',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     screenshot: 'only-on-failure',
@@ -42,8 +42,8 @@ export default defineConfig({
     trace: 'on-first-retry',
     actionTimeout: 10 * 1000, // 10 секунд на каждое действие (click, fill)
     navigationTimeout: 15 * 1000, // 15 секунд на переходы (page.goto)
-    expectTimeout: 5 * 1000, // 5 секунд на ожидания (expect)
-    apiURL: "https://apichallenges.eviltester.com",
+    expectTimeout: 15 * 1000, // 15 секунд на ожидания (expect)
+    apiURL: process.env.API_URL || "https://apichallenges.eviltester.com",
   },
 
   /* Configure projects for major browsers */

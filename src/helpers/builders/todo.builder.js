@@ -43,11 +43,11 @@ export class TodoBuilder {
         return this;
     }
 
-    todosExtra(priority = "extra") {
+    todosExtra(priority) {
         this.title = faker.string.alpha({ length: 7 });
         this.doneStatus = faker.datatype.boolean();
         this.description = faker.string.alpha({ length: 15 });
-        this.priority = priority;
+        this.priority = priority || faker.string.alpha({ length: 5 });;
         return this;
     }
 
@@ -85,9 +85,9 @@ export class TodoBuilder {
         return this;
     }
 
-    todosIdNoAmendId( id = 4 ) {
+    todosIdNoAmendId(id) {
         this.id = id;
-        this.title = faker.string.alpha({ length: 7 });
+        this.title = id || faker.number.int({ min: 1, max: 10 });
         return this;
     }
 

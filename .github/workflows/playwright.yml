@@ -18,7 +18,7 @@ jobs:
       with:
         node-version: lts/*
     - name: Установить пакеты
-      run: npm i
+      run: npm ci
     - name: Установить браузеры
       run: npx playwright install --with-deps
     - name: Запуск тестов

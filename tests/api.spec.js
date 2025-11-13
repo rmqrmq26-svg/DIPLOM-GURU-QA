@@ -1,6 +1,6 @@
 import { expect } from "@playwright/test";
 import { TodoBuilder } from "../src/helpers/builders/index"
-import { test } from "../src/fixtueres/index"
+import { test } from "../src/fixtures/index"
 
 let token;
 test.describe("POST /challenger @api", () => {

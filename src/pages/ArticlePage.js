@@ -38,7 +38,7 @@ export class ArticlePage extends BasePage {
     }
 
     async edit(editarticle) {    
-        const { articleName, shortDescription, description, tags } = editarticle;
+        const { articleName, shortDescription, description } = editarticle;
         
         await this.buttonEditArticle.click();
         await this.articleTitleInput.click();
