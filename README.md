@@ -60,7 +60,7 @@ Pull Request в main/master
 
 ### 📊 Allure Report
 [Ссылка на отчёт](https://rmqrmq26-svg.github.io/DIPLOM-GURU-QA/)
-<img width="1731" height="946" alt="image" src="![alt text](image-1.png)" />
+<img width="1731" height="946" alt="image" src="https://github.com/rmqrmq26-svg/DIPLOM-GURU-QA/blob/master/image-1.png" />
 
 **Включает:**
 
