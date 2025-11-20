@@ -216,7 +216,7 @@ test.describe("POST /challenger @api", () => {
 
   test("22/PUT /todos/{id} no amend id (400) @api", async ({ api, }, testinfo) => {
     const todo = new TodoBuilder()
-        .todosIdNoAmendId()
+        .todosIdNoAmendId(4)
         .generate();
     let result = await api.todos.putTodosIdNoAmendId(token, testinfo, todo);
     expect(result.response.status()).toBe(400);
