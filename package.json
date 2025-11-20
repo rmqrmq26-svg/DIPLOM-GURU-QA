@@ -14,7 +14,8 @@
   "devDependencies": {
     "@playwright/test": "^1.56.1",
     "@types/node": "^24.10.1",
-    "allure-playwright": "^3.4.2"
+    "allure-playwright": "^3.4.2",
+    "allure": "^3.0.0-beta.23"
   },
   "dependencies": {
     "@faker-js/faker": "^10.1.0"

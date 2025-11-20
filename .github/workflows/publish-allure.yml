@@ -2,7 +2,7 @@ name: Publish Allure Report
 
 on:
   workflow_run:
-    workflow: DIPLOM-GURU-QA
+    workflow: "DIPLOM-GURU-QA"
     types:
       - completed
 
