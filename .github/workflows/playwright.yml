@@ -19,6 +19,14 @@ jobs:
         node-version: lts/*
     - name: Установить пакеты
       run: npm ci
+      #telegram
+    - name: Отправить уведомление о завершении теста
+      uses: appleboy/telegram-action@master
+      env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      with:
+          message: '🚀 Автотесты завершены!'
     - name: Установить браузеры
       run: npx playwright install --with-deps
     - name: Запуск тестов
