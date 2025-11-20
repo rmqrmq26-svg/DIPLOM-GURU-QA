@@ -13,7 +13,7 @@ permissions:
   id-token: write
 
 jobs:
-  e2eTests:
+  Tests:
     timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:
@@ -121,7 +121,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         if: always()
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.TOKEN_GITHUB }}
           publish_dir: ./allure-report
           publish_branch: gh-pages
           commit_message: ${{ github.event_name }}-${{ github.run_id }}
