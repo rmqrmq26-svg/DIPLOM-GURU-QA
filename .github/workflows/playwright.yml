@@ -43,6 +43,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       with:
           message: '🚀 Автотесты завершены!'
+    
 
           
           
