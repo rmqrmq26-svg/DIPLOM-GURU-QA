@@ -36,7 +36,7 @@
 ```bash
 # Клонирование репозитория
 git clone https://github.com/rmqrmq26-svg/DIPLOM-GURU-QA.git
-cd qaGuru
+cd DIPLOM-GURU-QA
 
 # Установка зависимостей
 npm install
