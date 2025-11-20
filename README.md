@@ -59,8 +59,8 @@ Pull Request в main/master
 Ручной запуск через GitHub Actions
 
 ### 📊 Allure Report
-[Ссылка на отчёт]()
-<img width="1731" height="946" alt="image" src="https://github.com/user-attachments/assets/b6e13a6e-7d6e-43cb-a397-55beffc3f8fc" />
+[Ссылка на отчёт](https://rmqrmq26-svg.github.io/DIPLOM-GURU-QA/)
+<img width="1731" height="946" alt="image" src="![alt text](image-1.png)" />
 
 **Включает:**
 
