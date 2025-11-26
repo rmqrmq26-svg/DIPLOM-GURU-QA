@@ -6,7 +6,7 @@ export class ChallengesService {
   }
 
   async getChallenges(token, testinfo) {
-  return test.step("02/GET /challenges", async () => {
+  return test.step("GET /challenges", async () => {
     const response = await this.request.get(`${testinfo.project.use.apiURL}/challenges`,
       {
         headers: { "X-CHALLENGER": token },
