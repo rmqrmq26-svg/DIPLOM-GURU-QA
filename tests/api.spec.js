@@ -4,8 +4,8 @@ import { test } from "../src/fixtures/index"
 
 let token;
 test.describe("POST /challenger @api", () => {
-  test.beforeAll(async ({ request }, testinfo) => {
-    let response = await request.post(`${testinfo.project.use.apiURL}/challenger`);
+  test.beforeAll(async ({ api }, testinfo) => {
+    let response = await api.challenger.post(testinfo);
     const headers = response.headers();
     token = headers["x-challenger"];
   });

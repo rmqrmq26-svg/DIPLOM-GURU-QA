@@ -8,10 +8,9 @@ export class RegisterPage {
     }
 
     async register(user) {
-        return test.step(`Зарегистрироваться пользователем ${user.name} с email ${user.email} и паролем ${user.password}`, async (step) => {
+        return test.step(`Зарегистрироваться пользователем ${user.name} с email ${user.email}`, async (step) => {
             step.attach('Реквизиты доступа', {
-                body: `${user.name} с email ${user.email} и паролем ${user.password}`,
-                contentType: 'text/plain',
+
             });
 
             const { name, email, password } = user;
