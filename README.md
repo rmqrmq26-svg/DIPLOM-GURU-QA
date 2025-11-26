@@ -58,6 +58,7 @@ Pull Request в main/master
 
 Ручной запуск через GitHub Actions
 
+## Отчетность
 ### 📊 Allure Report
 [Ссылка на отчёт](https://rmqrmq26-svg.github.io/DIPLOM-GURU-QA/)
 <img width="1731" height="946" alt="image" src="https://github.com/rmqrmq26-svg/DIPLOM-GURU-QA/blob/master/media/screeanshots/image.png" />
@@ -76,6 +77,7 @@ Pull Request в main/master
 [Ссылка на проект](https://allure.autotests.cloud/project/5016)
 <img width="1280" height="526" alt="image" src="" />
 
+## Уведомления
 ### 📱 Telegram
 После каждого запуска тестов приходит уведомление с результатами:
 
