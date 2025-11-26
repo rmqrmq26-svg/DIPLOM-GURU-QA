@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 # jobs
 jobs:
-  e2eTests:
+  Tests:
     timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:
@@ -72,9 +72,10 @@ jobs:
 
       - name: Install allurectl
         run: |
-          curl -o allurectl -L "https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_amd64"
+          curl -L https://github.com/alluraframework/allurectl/releases/download/v1.0.1/allurectl_1.0.1_linux_amd64.tar.gz -o allurectl.tar.gz
+          tar xzf allurectl.tar.gz
           chmod +x allurectl
-          sudo mv allurectl /usr/local/bin/
+          mv allurectl /usr/local/bin/
 
       - name: Upload results to Allure TestOps
         if: always()
@@ -82,7 +83,7 @@ jobs:
           allurectl upload allure-results \
             --endpoint https://allure.autotests.cloud \
             --project-id 5016 \
-            --token ${{ secrets.ALLURE_TOKEN }} \
+            --token ${{ secrets.ALLURE_TESTOPS_API_KEY }} \
             --launch-name "GitHub Run #${{ github.run_number }}"
 
       - name: Parse Allure summary
@@ -111,12 +112,7 @@ jobs:
             📦 *Результаты автотестов* 
             🎯 Репозиторий: ${{ github.repository }}
             🔄 Ветка: ${{ github.ref_name }}
-            🕐 Время: ${{ github.event.created_at || github.run_started_at }}
             ✅ Статус: ${{ job.status }}
-            
-            ${{ steps.playwright.conclusion == 'success' && '🟢 Все тесты прошли!' || '🔴 Тесты упали!' }}
-            📊 Пройдено: ${{ env.PASSED }} / ${{ env.TOTAL }}
-
             🔗 [Посмотреть логи](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
             📊 [Посмотреть Allure отчёт](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/allure-report)
           format: markdown    
