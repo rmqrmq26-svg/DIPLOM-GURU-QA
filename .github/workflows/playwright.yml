@@ -72,11 +72,13 @@ jobs:
 
       - name: Install allurectl
         run: |
-          curl -L https://github.com/alluraframework/allurectl/releases/download/v1.0.1/allurectl_1.0.1_linux_amd64.tar.gz -o allurectl.tar.gz
-          tar xzf allurectl.tar.gz
+         if [ ! -f "/usr/local/bin/allurectl" ]; then
+          echo "Installing allurectl..."
+          curl -o allurectl -L "https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_amd64"
           chmod +x allurectl
-          mv allurectl /usr/local/bin/
-
+          sudo mv allurectl /usr/local/bin/
+         fi
+         
       - name: Upload results to Allure TestOps
         if: always()
         run: |
