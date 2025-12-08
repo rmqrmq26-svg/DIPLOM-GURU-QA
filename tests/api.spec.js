@@ -10,7 +10,7 @@ test.describe("POST /challenger @api", () => {
     token = headers["x-challenger"];
   });
 
-  test("/GET /challenges @api", async ({ api }, testinfo) => {
+  test("GET /challenges @api", async ({ api }, testinfo) => {
   let result = await api.challenges.getChallenges(token, testinfo);
   
   expect(result.response.status()).toBe(200);
@@ -40,7 +40,7 @@ test.describe("POST /challenger @api", () => {
     expect(result.body.todos[0].description).toBe('');
   });
 
-  test("/GET /todos/{id} @api", async ({ api }, testinfo) => {
+  test("GET /todos/{id}  @api", async ({ api }, testinfo) => {
     let result = await api.todos.getTodosIdNegative(token, testinfo);
     expect(result.response.status()).toBe(404);
     expect(result.headers["x-challenger"]).toBe(token);
@@ -166,7 +166,7 @@ test.describe("POST /challenger @api", () => {
     expect(result.body.title).toBe(todo.title);
   });
 
-  test("/POST /todos/{id} @api", async ({ api, }, testinfo) => {
+  test("POST /todos/{id} ok @api", async ({ api, }, testinfo) => {
     const todo = new TodoBuilder()
         .todosIdNegative()
         .generate();
@@ -266,7 +266,7 @@ test.describe("POST /challenger @api", () => {
     expect(typeof result.body === "object").toBe(true);
   });
 
-  test("GET /todos (200) XML pref @api", async ({ api, }, testinfo) => {
+  test("GET /todos XML pref @api", async ({ api, }, testinfo) => {
     let result = await api.todos.getTodosXmlPref(token, testinfo);
     expect(result.response.status()).toBe(200);
     expect(result.headers["x-challenger"]).toBe(token);
@@ -274,7 +274,7 @@ test.describe("POST /challenger @api", () => {
     expect(result.body.trim().startsWith("<")).toBe(true);
   });
 
-  test("/GET /todos (200) no accept @api", async ({ api, }, testinfo) => {
+  test("GET /todos no accept @api", async ({ api, }, testinfo) => {
     let result = await api.todos.getTodosNoAccept(token, testinfo);
     expect(result.response.status()).toBe(200);
     expect(result.headers["x-challenger"]).toBe(token);
@@ -282,7 +282,7 @@ test.describe("POST /challenger @api", () => {
     expect(typeof result.body === "object").toBe(true);
   });
 
-  test("/GET /todos (406) @api", async ({ api, }, testinfo) => {
+  test("GET /todos Unrecognised @api", async ({ api, }, testinfo) => {
     let result = await api.todos.getTodos406(token, testinfo);
     expect(result.response.status()).toBe(406);
     expect(result.body.errorMessages).toContain("Unrecognised Accept Type");
