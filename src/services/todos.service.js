@@ -153,7 +153,7 @@ export class ToDos {
   }
 
   async putTodosId(token, testinfo, data) {
-    return test.step("PUT /todos/{id} (400)", async () => {
+    return test.step("PUT /todos/{id}", async () => {
     const response = await this.request.put(`${testinfo.project.use.apiURL}/todos/300`, {
         headers: { 'X-CHALLENGER': token },
         data: data 
@@ -217,7 +217,7 @@ export class ToDos {
   }
 
   async putTodosIdNoTitle(token, testinfo, data) {
-    return test.step("PUT /todos/{id} no title (400)", async () => {
+    return test.step("PUT /todos/{id} no title", async () => {
     const response = await this.request.put(`${testinfo.project.use.apiURL}/todos/3`, {
         headers: { 'X-CHALLENGER': token },
         data: data 
@@ -230,7 +230,7 @@ export class ToDos {
   }
 
   async putTodosIdNoAmendId(token, testinfo, data) {
-    return test.step("PUT /todos/{id} no amend id (400)", async () => {
+    return test.step("PUT /todos/{id})", async () => {
     const response = await this.request.put(`${testinfo.project.use.apiURL}/todos/3`, {
         headers: { 'X-CHALLENGER': token },
         data: data 
