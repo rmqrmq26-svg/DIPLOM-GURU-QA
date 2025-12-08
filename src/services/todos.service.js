@@ -1,4 +1,5 @@
 import { test } from '@playwright/test';
+import { TODO_IDS } from '../const/test-data';
 
 export class ToDos {
   constructor(request) {
@@ -20,7 +21,7 @@ export class ToDos {
 
   async getTodosPositive(token, testinfo) {
     return test.step("GET /todos/{id}", async () => {
-    const response = await this.request.get(`${testinfo.project.use.apiURL}/todos/5`, {
+    const response = await this.request.get(`${testinfo.project.use.apiURL}/todos/${TODO_IDS.EXISTING}`, {
         headers: {
         "x-challenger": token,
       },
@@ -33,7 +34,7 @@ export class ToDos {
 
   async getTodosIdNegative(token, testinfo) {
     return test.step("GET /todos/{id}", async () => {
-    const response = await this.request.get(`${testinfo.project.use.apiURL}/todos/15`, {
+    const response = await this.request.get(`${testinfo.project.use.apiURL}/todos/${TODO_IDS.NOT_EXISTING}`, {
         headers: { 'X-CHALLENGER': token },
       });
     const body = await response.json();
@@ -154,7 +155,7 @@ export class ToDos {
 
   async putTodosId(token, testinfo, data) {
     return test.step("PUT /todos/{id}", async () => {
-    const response = await this.request.put(`${testinfo.project.use.apiURL}/todos/300`, {
+    const response = await this.request.put(`${testinfo.project.use.apiURL}/todos/${TODO_IDS.FOR_PUT}`, {
         headers: { 'X-CHALLENGER': token },
         data: data 
       });
@@ -167,7 +168,7 @@ export class ToDos {
 
   async postTodosIdPositive(token, testinfo, data) {
     return test.step("POST /todos/{id}", async () => {
-    const response = await this.request.post(`${testinfo.project.use.apiURL}/todos/5`, {
+    const response = await this.request.post(`${testinfo.project.use.apiURL}/todos/${TODO_IDS.EXISTING}`, {
         headers: { 'X-CHALLENGER': token },
         data: data 
       });
@@ -179,7 +180,7 @@ export class ToDos {
   }
   async postTodosIdNegative(token, testinfo, data) {
     return test.step("POST /todos/{id}", async () => {
-    const response = await this.request.post(`${testinfo.project.use.apiURL}/todos/200`, {
+    const response = await this.request.post(`${testinfo.project.use.apiURL}/todos/${TODO_IDS.FOR_OK}`, {
         headers: { 'X-CHALLENGER': token },
         data: data 
       });
@@ -192,7 +193,7 @@ export class ToDos {
 
   async putTodosIdFull(token, testinfo, data) {
     return test.step("PUT /todos/{id}", async () => {
-    const response = await this.request.put(`${testinfo.project.use.apiURL}/todos/3`, {
+    const response = await this.request.put(`${testinfo.project.use.apiURL}/todos/${TODO_IDS.FOR_UPDATE}`, {
         headers: { 'X-CHALLENGER': token },
         data: data 
       });
@@ -205,7 +206,7 @@ export class ToDos {
 
   async putTodosIdPartial(token, testinfo, data) {
     return test.step("PUT /todos/{id}", async () => {
-    const response = await this.request.put(`${testinfo.project.use.apiURL}/todos/3`, {
+    const response = await this.request.put(`${testinfo.project.use.apiURL}/todos/${TODO_IDS.FOR_UPDATE}`, {
         headers: { 'X-CHALLENGER': token },
         data: data 
       });
@@ -218,7 +219,7 @@ export class ToDos {
 
   async putTodosIdNoTitle(token, testinfo, data) {
     return test.step("PUT /todos/{id} no title", async () => {
-    const response = await this.request.put(`${testinfo.project.use.apiURL}/todos/3`, {
+    const response = await this.request.put(`${testinfo.project.use.apiURL}/todos/${TODO_IDS.FOR_UPDATE}`, {
         headers: { 'X-CHALLENGER': token },
         data: data 
       });
@@ -231,7 +232,7 @@ export class ToDos {
 
   async putTodosIdNoAmendId(token, testinfo, data) {
     return test.step("PUT /todos/{id}", async () => {
-    const response = await this.request.put(`${testinfo.project.use.apiURL}/todos/3`, {
+    const response = await this.request.put(`${testinfo.project.use.apiURL}/todos/${TODO_IDS.FOR_UPDATE}`, {
         headers: { 'X-CHALLENGER': token },
         data: data 
       });
@@ -244,7 +245,7 @@ export class ToDos {
 
   async deleteTodosId(token, testinfo) {
     return test.step("DELETE /todos/{id}", async () => {
-    const response = await this.request.delete(`${testinfo.project.use.apiURL}/todos/1`, {
+    const response = await this.request.delete(`${testinfo.project.use.apiURL}/todos/${TODO_IDS.FOR_DELETE}`, {
         headers: { 'X-CHALLENGER': token },
       });
       

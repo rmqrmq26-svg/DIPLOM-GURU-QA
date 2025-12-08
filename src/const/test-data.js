@@ -1,0 +1,8 @@
+export const TODO_IDS = {
+ EXISTING: 5,
+ NOT_EXISTING: 15,
+ FOR_UPDATE: 3,
+ FOR_DELETE: 1,
+ FOR_PUT: 300,
+ FOR_OK: 200,
+};
