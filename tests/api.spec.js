@@ -49,7 +49,7 @@ test.describe("POST /challenger @api", () => {
     );
   });
 
-  test("GET /todos ?filter @api", async ({ api }, testinfo) => {
+  test("GET /todos?filter @api", async ({ api }, testinfo) => {
     let result = await api.todos.getTodosFilter(token, testinfo);
     expect(result.response.status()).toBe(200);
     expect(result.headers["x-challenger"]).toBe(token);
