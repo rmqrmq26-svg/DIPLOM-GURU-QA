@@ -230,7 +230,7 @@ export class ToDos {
   }
 
   async putTodosIdNoAmendId(token, testinfo, data) {
-    return test.step("PUT /todos/{id})", async () => {
+    return test.step("PUT /todos/{id}", async () => {
     const response = await this.request.put(`${testinfo.project.use.apiURL}/todos/3`, {
         headers: { 'X-CHALLENGER': token },
         data: data 
